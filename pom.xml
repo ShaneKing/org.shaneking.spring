@@ -10,7 +10,7 @@
 
   <groupId>org.shaneking.spring</groupId>
   <artifactId>org.shaneking.spring</artifactId>
-  <version>${revision.spring}</version>
+  <version>${revisionSpring}</version>
   <packaging>pom</packaging>
 
   <name>Spring Series Top Project For ShaneKing</name>
@@ -85,8 +85,8 @@
     </repository>
   </distributionManagement>
   <properties>
-    <revision.parent>0.2.0</revision.parent>
-    <revision.spring>0.1.0</revision.spring>
+    <revisionParent>0.2.0</revisionParent>
+    <revisionSpring>0.1.0</revisionSpring>
     <maven.compile.source>1.8</maven.compile.source>
     <maven.compile.target>1.8</maven.compile.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -111,7 +111,7 @@
       <dependency>
         <groupId>org.shaneking</groupId>
         <artifactId>org.shaneking.skava</artifactId>
-        <version>${revision.parent}</version>
+        <version>${revisionParent}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
