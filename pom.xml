@@ -85,8 +85,8 @@
     </repository>
   </distributionManagement>
   <properties>
-    <revisionParent>0.2.0</revisionParent>
-    <revisionSpring>0.1.0</revisionSpring>
+    <revisionParent>0.2.1</revisionParent>
+    <revisionSpring>0.1.1</revisionSpring>
     <maven.compile.source>1.8</maven.compile.source>
     <maven.compile.target>1.8</maven.compile.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
