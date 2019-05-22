@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.4.RELEASE</version>
+    <version>2.1.5.RELEASE</version>
   </parent>
 
   <groupId>org.shaneking.spring</groupId>
   <artifactId>org.shaneking.spring</artifactId>
-  <version>${revisionSpring}</version>
+  <version>0.1.1</version>
   <packaging>pom</packaging>
 
   <name>Spring Series Top Project For ShaneKing</name>
@@ -85,15 +85,16 @@
     </repository>
   </distributionManagement>
   <properties>
-    <revisionParent>0.2.1</revisionParent>
-    <revisionSpring>0.1.0</revisionSpring>
+    <skVersion>0.2.1</skVersion>
+    <springBootVersion>2.1.5.RELEASE</springBootVersion>
     <maven.compile.source>1.8</maven.compile.source>
     <maven.compile.target>1.8</maven.compile.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- dependencies -->
+    <cglib_version>2.2.2</cglib_version>
     <com.github.jsqlparser_jsqlparser_version>2.0</com.github.jsqlparser_jsqlparser_version>
     <com.google.guava_guava_version>27.1-jre</com.google.guava_guava_version>
-    <org.projectlombok_lombok>1.18.6</org.projectlombok_lombok>
+    <org.projectlombok_lombok_version>1.18.6</org.projectlombok_lombok_version>
     <!-- plugins -->
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
@@ -105,7 +106,7 @@
     <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
   </properties>
 
-  <!-- mvn -N versions:set -DnewVersion=0.2.1 -->
+  <!-- mvn -N versions:set -DnewVersion=0.1.1 -->
   <!-- mvn versions:commit -->
   <!-- Unused : mvn -N versions:update-child-modules -->
   <modules>
@@ -114,6 +115,22 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+        <version>${springBootVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${springBootVersion}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>${cglib_version}</version>
+      </dependency>
       <dependency>
         <groupId>com.github.jsqlparser</groupId>
         <artifactId>jsqlparser</artifactId>
@@ -127,12 +144,12 @@
       <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>${org.projectlombok_lombok}</version>
+        <version>${org.projectlombok_lombok_version}</version>
       </dependency>
       <dependency>
         <groupId>org.shaneking</groupId>
         <artifactId>org.shaneking.skava</artifactId>
-        <version>${revisionParent}</version>
+        <version>${skVersion}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -140,6 +157,10 @@
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
         <!--compile-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
