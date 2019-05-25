@@ -15,7 +15,7 @@
 
   <name>Spring Series Top Project For ShaneKing</name>
   <description>Spring Series Top Project For ShaneKing</description>
-  <url>https://github.com/ShaneKing</url>
+  <url>https://github.com/ShaneKing/org.shaneking.spring</url>
   <inceptionYear>2011-2019</inceptionYear>
 
   <organization>
@@ -91,10 +91,10 @@
     <maven.compile.target>1.8</maven.compile.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- dependencies -->
-    <cglib_version>2.2.2</cglib_version>
     <com.github.jsqlparser_jsqlparser_version>2.0</com.github.jsqlparser_jsqlparser_version>
     <com.google.guava_guava_version>27.1-jre</com.google.guava_guava_version>
     <org.projectlombok_lombok_version>1.18.6</org.projectlombok_lombok_version>
+    <org.slf4j_version>1.7.26</org.slf4j_version>
     <!-- plugins -->
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
@@ -106,11 +106,8 @@
     <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
   </properties>
 
-  <!-- mvn -N versions:set -DnewVersion=0.1.1 -->
-  <!-- mvn versions:commit -->
-  <!-- Unused : mvn -N versions:update-child-modules -->
   <modules>
-    <module>../org.shaneking.spring.jsqlparser</module>
+    <module>../org.shaneking.spring.currentlimiter</module>
   </modules>
 
   <dependencyManagement>
@@ -127,11 +124,6 @@
         <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>cglib</groupId>
-        <artifactId>cglib</artifactId>
-        <version>${cglib_version}</version>
-      </dependency>
-      <dependency>
         <groupId>com.github.jsqlparser</groupId>
         <artifactId>jsqlparser</artifactId>
         <version>${com.github.jsqlparser_jsqlparser_version}</version>
@@ -145,6 +137,11 @@
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <version>${org.projectlombok_lombok_version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${org.slf4j_version}</version>
       </dependency>
       <dependency>
         <groupId>org.shaneking</groupId>
