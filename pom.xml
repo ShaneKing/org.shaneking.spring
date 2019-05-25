@@ -85,7 +85,7 @@
     </repository>
   </distributionManagement>
   <properties>
-    <skVersion>0.2.1</skVersion>
+    <skVersion>0.4.0</skVersion>
     <springBootVersion>2.1.5.RELEASE</springBootVersion>
     <maven.compile.source>1.8</maven.compile.source>
     <maven.compile.target>1.8</maven.compile.target>
