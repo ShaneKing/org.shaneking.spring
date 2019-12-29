@@ -85,7 +85,7 @@
     </repository>
   </distributionManagement>
   <properties>
-    <skVersion>0.9.5</skVersion>
+    <skVersion>0.10.0</skVersion>
     <springBootVersion>2.2.0.RELEASE</springBootVersion>
     <maven.compile.source>1.8</maven.compile.source>
     <maven.compile.target>1.8</maven.compile.target>
@@ -109,6 +109,7 @@
   <modules>
     <module>../org.shaneking.spring.currentlimiter</module>
     <module>../org.shaneking.spring.sql</module>
+    <module>../org.shaneking.spring.demo</module>
   </modules>
 
   <dependencyManagement>
@@ -155,6 +156,11 @@
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${org.slf4j_version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.shaneking</groupId>
+        <artifactId>org.shaneking.jackson</artifactId>
+        <version>${skVersion}</version>
       </dependency>
       <dependency>
         <groupId>org.shaneking</groupId>
