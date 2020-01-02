@@ -109,7 +109,7 @@
   <modules>
     <module>../org.shaneking.spring.currentlimiter</module>
     <module>../org.shaneking.spring.sql</module>
-    <module>../org.shaneking.spring.demo</module>
+    <module>../org.shaneking.spring.demo.aop.ivd</module>
   </modules>
 
   <dependencyManagement>
