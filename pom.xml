@@ -10,7 +10,7 @@
 
   <groupId>org.shaneking.spring</groupId>
   <artifactId>org.shaneking.spring</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2</version>
   <packaging>pom</packaging>
 
   <name>Spring Series Top Project for ShaneKing</name>
@@ -85,7 +85,7 @@
     </repository>
   </distributionManagement>
   <properties>
-    <skVersion>0.11.1</skVersion>
+    <skVersion>0.11.2</skVersion>
     <springBootVersion>2.2.0.RELEASE</springBootVersion>
     <maven.compile.source>1.8</maven.compile.source>
     <maven.compile.target>1.8</maven.compile.target>
@@ -106,7 +106,7 @@
     <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
   </properties>
 
-  <!-- mvn -N versions:set -DnewVersion=0.2.1 -->
+  <!-- mvn -N versions:set -DnewVersion=0.2.2 -->
   <!-- mvn versions:commit -->
   <!-- Unused : mvn -N versions:update-child-modules -->
   <modules>
