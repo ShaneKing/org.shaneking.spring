@@ -6,9 +6,6 @@
       <pattern>${sklog.pattern}</pattern>
       <charset>UTF-8</charset>
     </encoder>
-    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-      <level>info</level><!-- >info -->
-    </filter>
   </appender>
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <encoder>
@@ -16,9 +13,6 @@
       <charset>UTF-8</charset>
     </encoder>
     <file>${sklog.path}/org.shaneking.log</file>
-    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-      <level>info</level><!-- >info -->
-    </filter>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <fileNamePattern>${sklog.path}/org.shaneking-%d{yyyy-MM-dd}.%i.log</fileNamePattern><!-- Rolling Policy: By Date By Size -->
       <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -27,18 +21,19 @@
       <maxHistory>32</maxHistory><!-- Day -->
     </rollingPolicy>
   </appender>
-  <root level="info"><!-- >info -->
-    <appender-ref ref="CONSOLE"/>
-    <appender-ref ref="FILE"/>
-  </root>
-
-  <springProfile name="prod">
+  <springProfile name="default">
     <root level="info"><!-- >info -->
       <appender-ref ref="CONSOLE"/>
       <appender-ref ref="FILE"/>
     </root>
   </springProfile>
 
+  <springProfile name="test">
+    <root level="debug"><!-- >debug -->
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="FILE"/>
+    </root>
+  </springProfile>
 
   <appender name="SPECIAL_PACKAGE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <encoder>
@@ -57,12 +52,11 @@
       <maxHistory>32</maxHistory><!-- Day -->
     </rollingPolicy>
   </appender>
-  <springProfile name="test">
+  <springProfile name="specialPackageFile">
     <logger name="org.shaneking.xxx" level="info" additifiltervity="false"><!-- additifiltervity=false : the org.shaneking.xxx log just output to this logger -->
       <appender-ref ref="SPECIAL_PACKAGE_FILE"/>
     </logger>
   </springProfile>
-
 
   <appender name="JUST_ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <encoder>
@@ -83,8 +77,8 @@
       <maxHistory>32</maxHistory><!-- Day -->
     </rollingPolicy>
   </appender>
-  <springProfile name="dev">
-    <logger name="org.shaneking.yyy" level="warn"><!-- level=warn : >warn -->
+  <springProfile name="justErrorFile">
+    <logger level="warn"><!-- level=warn : >warn -->
       <appender-ref ref="JUST_ERROR_FILE"/>
     </logger>
   </springProfile>
