@@ -3,14 +3,15 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.0.RELEASE</version>
+    <groupId>org.shaneking</groupId>
+    <artifactId>org.shaneking</artifactId>
+    <version>0.13.1</version>
+    <relativePath>../org.shaneking</relativePath>
   </parent>
 
   <groupId>org.shaneking.spring</groupId>
   <artifactId>org.shaneking.spring</artifactId>
-  <version>0.2.5</version>
+  <version>0.3.0</version>
   <packaging>pom</packaging>
 
   <name>Spring Series Top Project for ShaneKing</name>
@@ -24,7 +25,7 @@
   </organization>
   <licenses>
     <license>
-      <name>MIT</name>
+      <name>Apache-2.0</name>
       <url>https://opensource.org/licenses/Apache-2.0</url>
       <distribution>repo</distribution>
       <comments>ShaneKing is released under Apache-2.0 License.</comments>
@@ -85,27 +86,10 @@
     </repository>
   </distributionManagement>
   <properties>
-    <skVersion>0.12.3</skVersion>
-    <maven.compile.source>1.8</maven.compile.source>
-    <maven.compile.target>1.8</maven.compile.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- dependencies -->
-    <com.github.jsqlparser_jsqlparser_version>3.0</com.github.jsqlparser_jsqlparser_version>
-    <com.google.guava_guava_version>28.1-jre</com.google.guava_guava_version>
-    <org.projectlombok_lombok_version>1.18.10</org.projectlombok_lombok_version>
-    <org.slf4j_version>1.7.28</org.slf4j_version>
-    <!-- plugins -->
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-    <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-    <org.jacoco_jacoco-maven-plugin_version>0.8.5</org.jacoco_jacoco-maven-plugin_version>
-    <!-- profile plugins -->
-    <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-    <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
-    <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+    <org.shaneking.spring_version>0.3.0</org.shaneking.spring_version>
   </properties>
 
-  <!-- mvn -N versions:set -DnewVersion=0.2.5 -->
+  <!-- mvn -N versions:set -DnewVersion=0.3.0 -->
   <!-- mvn versions:commit -->
   <!-- Unused : mvn -N versions:update-child-modules -->
   <modules>
@@ -115,162 +99,5 @@
     <module>../org.shaneking.spring.demo.aop.ivd</module>
     <module>../org.shaneking.spring.demo.performance.testing</module>
   </modules>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>${com.google.guava_guava_version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>${org.projectlombok_lombok_version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${org.slf4j_version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.shaneking</groupId>
-        <artifactId>org.shaneking.jackson</artifactId>
-        <version>${skVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.shaneking</groupId>
-        <artifactId>org.shaneking.skava</artifactId>
-        <version>${skVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.shaneking</groupId>
-        <artifactId>org.shaneking.sql</artifactId>
-        <version>${skVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.shaneking</groupId>
-        <artifactId>org.shaneking.test</artifactId>
-        <version>${skVersion}</version>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <!-- mvn clean install -->
-  <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-        </plugin>
-        <!--compile-->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>${maven-compiler-plugin.version}</version>
-          <configuration>
-            <source>${maven.compile.source}</source>
-            <target>${maven.compile.target}</target>
-          </configuration>
-        </plugin>
-        <!--test-->
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${maven-surefire-plugin.version}</version>
-          <configuration>
-            <!-- 使用 maven-surefire-plugin来执行单元测试。 将surefireArgLine赋值给argLine参数，以保证在测试执行时Jacoco agent处于运行状态。 -->
-            <argLine>${surefireArgLine}</argLine>
-            <useManifestOnlyJar>false</useManifestOnlyJar>
-            <useSystemClassLoader>true</useSystemClassLoader>
-          </configuration>
-        </plugin>
-        <!--test:coverage-->
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${org.jacoco_jacoco-maven-plugin_version}</version>
-          <executions>
-            <execution>
-              <!-- 在maven的initialize阶段，将Jacoco的runtime agent作为VM的一个参数 传给被测程序，用于监控JVM中的调用。 -->
-              <id>default-prepare-agent</id>
-              <goals>
-                <goal>prepare-agent</goal>
-              </goals>
-              <configuration>
-                <destFile>${project.build.directory}/coverage-reports/jacoco.exec</destFile>
-                <propertyName>surefireArgLine</propertyName>
-              </configuration>
-            </execution>
-            <execution>
-              <!-- 在程序的verify阶段，执行report测试的程序。 文件的输入为perpare-agent阶段中设置或者默认的jacoco.exec. 参数 includes和excludes可用来选定report中过滤的类。 -->
-              <id>default-report</id>
-              <phase>test</phase>
-              <goals>
-                <goal>report</goal>
-              </goals>
-              <configuration>
-                <dataFile>${project.build.directory}/coverage-reports/jacoco.exec</dataFile>
-                <outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
   <!-- mvn clean deploy -P release -Dgpg.passphrase=分享为shaneking在上海 -->
-  <profiles>
-    <profile>
-      <id>release</id>
-      <build>
-        <plugins>
-          <!-- GPG:-Dgpg.passphrase=分享为shaneking在上海 -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>${maven-gpg-plugin.version}</version>
-            <executions>
-              <execution>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- Javadoc -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${maven-javadoc-plugin.version}</version>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <!-- Source -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <version>${maven-source-plugin.version}</version>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-
 </project>
