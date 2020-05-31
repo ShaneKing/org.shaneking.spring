@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.shaneking</groupId>
     <artifactId>org.shaneking</artifactId>
-    <version>0.13.1</version>
+    <version>0.13.3</version>
     <relativePath>../org.shaneking</relativePath>
   </parent>
 
   <groupId>org.shaneking.spring</groupId>
   <artifactId>org.shaneking.spring</artifactId>
-  <version>0.3.0</version>
+  <version>0.3.1</version>
   <packaging>pom</packaging>
 
   <name>Spring Series Top Project for ShaneKing</name>
@@ -86,18 +86,14 @@
     </repository>
   </distributionManagement>
   <properties>
-    <org.shaneking.spring_version>0.3.0</org.shaneking.spring_version>
+    <org.shaneking_version>0.13.3</org.shaneking_version>
   </properties>
 
-  <!-- mvn -N versions:set -DnewVersion=0.3.0 -->
-  <!-- mvn versions:commit -->
-  <!-- Unused : mvn -N versions:update-child-modules -->
+  <!-- mvn -N versions:set -DgenerateBackupPoms=false -DnewVersion=0.3.1 -->
   <modules>
     <module>../org.shaneking.spring.test</module>
     <module>../org.shaneking.spring.currentlimiter</module>
     <module>../org.shaneking.spring.sql</module>
-    <module>../org.shaneking.spring.demo.aop.ivd</module>
-    <module>../org.shaneking.spring.demo.performance.testing</module>
   </modules>
   <!-- mvn clean deploy -P release -Dgpg.passphrase=分享为shaneking在上海 -->
 </project>
