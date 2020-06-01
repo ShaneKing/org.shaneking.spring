@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.shaneking</groupId>
     <artifactId>org.shaneking</artifactId>
-    <version>0.13.3</version>
+    <version>0.13.5</version>
     <relativePath>../org.shaneking</relativePath>
   </parent>
 
   <groupId>org.shaneking.spring</groupId>
   <artifactId>org.shaneking.spring</artifactId>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <packaging>pom</packaging>
 
   <name>Spring Series Top Project for ShaneKing</name>
@@ -86,10 +86,10 @@
     </repository>
   </distributionManagement>
   <properties>
-    <org.shaneking_version>0.13.3</org.shaneking_version>
+    <org.shaneking_version>0.13.5</org.shaneking_version>
   </properties>
 
-  <!-- mvn -N versions:set -DgenerateBackupPoms=false -DnewVersion=0.3.1 -->
+  <!-- mvn -N versions:set -DgenerateBackupPoms=false -DnewVersion=0.3.2 -->
   <modules>
     <module>../org.shaneking.spring.test</module>
     <module>../org.shaneking.spring.currentlimiter</module>
